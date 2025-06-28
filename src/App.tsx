@@ -1,12 +1,12 @@
 import { useState } from "react";
 import DeckFetcher from "./DeckFetcher";
-import _DeckExtractor, { type DeckCard } from "./DeckExtractor";
+import DeckExtractor, { type DeckCard } from "./DeckExtractor";
 import MulliganSimulator from "./MulliganSimulator";
 import "./App.css";
 
 export default function App() {
-  const [_deckJson, setDeckJson] = useState<any | null>(null);
-  const [deckCards, _setDeckCards] = useState<DeckCard[] | null>(null);
+  const [deckJson, setDeckJson] = useState<any | null>(null);
+  const [deckCards, setDeckCards] = useState<DeckCard[] | null>(null);
 
   return (
     // 画面全体にグラデーション背景 ➜ slate-900→slate-800
@@ -34,6 +34,10 @@ export default function App() {
       {/* -------------------------------------------------- MAIN CONTENT */}
       <main className="w-full max-w-4xl flex-1 p-4 space-y-6 flex flex-col items-center">
         <DeckFetcher onDeckJson={setDeckJson} />
+
+        {deckJson && (
+          <DeckExtractor deckJson={deckJson} onDeckList={setDeckCards} />
+        )}
 
         {deckCards && <MulliganSimulator cardPool={deckCards} />}
       </main>

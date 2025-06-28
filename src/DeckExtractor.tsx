@@ -63,5 +63,5 @@ export default function DeckExtractor({
 
     return list.sort((a, b) => (a.cost - b.cost) || a.name.localeCompare(b.name));
   }
-
+return null;
 }
