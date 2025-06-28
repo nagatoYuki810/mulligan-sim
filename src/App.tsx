@@ -1,12 +1,12 @@
 import { useState } from "react";
 import DeckFetcher from "./DeckFetcher";
-import DeckExtractor, { type DeckCard } from "./DeckExtractor";
+import _DeckExtractor, { type DeckCard } from "./DeckExtractor";
 import MulliganSimulator from "./MulliganSimulator";
 import "./App.css";
 
 export default function App() {
-  const [deckJson, setDeckJson] = useState<any | null>(null);
-  const [deckCards, setDeckCards] = useState<DeckCard[] | null>(null);
+  const [_deckJson, setDeckJson] = useState<any | null>(null);
+  const [deckCards, _setDeckCards] = useState<DeckCard[] | null>(null);
 
   return (
     // 画面全体にグラデーション背景 ➜ slate-900→slate-800
