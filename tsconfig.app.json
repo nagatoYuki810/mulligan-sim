@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.json",   // ★ これを先頭に
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",

@@ -1,5 +1,4 @@
-import { useState, ChangeEvent, useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useState, useEffect } from "react";
 
 export interface DeckCard {
   cost: number;

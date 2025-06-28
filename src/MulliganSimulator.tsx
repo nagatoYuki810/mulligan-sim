@@ -102,7 +102,7 @@ export default function MulliganSimulator({ cardPool }: Props) {
         onClick={selectable ? onClick : undefined}
       >
         {/* マナコストバッジ */}
-        <span className="absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-green-300 text-xs font-bold shadow-md">
+        <span className="absolute left-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-green-200 text-xs font-bold shadow-md">
           {card.cost}
         </span>
         <CardContent className="flex h-full w-full items-center justify-center p-2 text-center text-sm font-semibold tracking-tight">
