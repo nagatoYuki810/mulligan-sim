@@ -22,8 +22,8 @@ export default function DeckExtractor({
   deckJson?: any;
   onDeckList?: (list: DeckCard[]) => void;
 }) {
-  const [deck, setDeck] = useState<DeckCard[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const [_deck, setDeck] = useState<DeckCard[]>([]);
+  const [_error, setError] = useState<string | null>(null);
 
   /* ------------------------------------------------------------------
    * deckJson が props で渡ってきた場合の処理
