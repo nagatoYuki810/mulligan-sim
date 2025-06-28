@@ -69,18 +69,25 @@ export default function MulliganSimulator({ cardPool }: Props) {
     s.has(i) ? s.delete(i) : s.add(i);
     setSelected(s);
   }
-  function confirm() {
-    if (finalHand.length) return;
-    let tmp = [...deck];
-    const kept = [...initialHand];
-    [...selected]
-      .sort((a, b) => b - a)
-      .forEach((i) => tmp.push(kept.splice(i, 1)[0]));
-    tmp = shuffle(tmp);
-    const draw = tmp.slice(0, selected.size);
-    setFinalHand([...kept, ...draw]);
-    setDeck(tmp.slice(selected.size));
-  }
+function confirm() {
+  if (finalHand.length) return;
+
+  // ① まず除外カードを取り出す
+  const kept = [...initialHand];
+  const toReturn: typeof deck = [];
+  [...selected].sort((a,b) => b - a).forEach(i => toReturn.push(kept.splice(i,1)[0]));
+
+  // ② 除外カードを一旦除いた山札でシャッフル＆ドロー
+  let tmp = shuffle([...deck]);          // ★ここには toReturn をまだ入れない
+  const draw = tmp.slice(0, selected.size);
+
+  // ③ 交換後の手札を確定
+  setFinalHand([...kept, ...draw]);
+
+  // ④ ドロー後に除外カードを戻し、山札を完成させる
+  tmp = [...tmp.slice(selected.size), ...toReturn];
+  setDeck(tmp);
+}
 
   /* -------------------------------------------------- Card Component */
   function CardView({
