@@ -64,26 +64,4 @@ export default function DeckExtractor({
     return list.sort((a, b) => (a.cost - b.cost) || a.name.localeCompare(b.name));
   }
 
-  /* ------------------------------------------------------------------
-   * JSX
-   * 
-  return (
-    <Card className="p-4 space-y-4 w-full">
-      <CardContent className="space-y-4">
-        {error && <p className="text-red-600">Error: {error}</p>}
-
-        {deck.length > 0 && (
-          <pre className="whitespace-pre-wrap bg-gray-100 p-2 rounded max-h-96 overflow-auto text-sm">
-            {deck
-              .map(
-                (c) =>
-                  `{ cost: ${c.cost}, name: "${c.name}", count: ${c.count} },`
-              )
-              .join("\n")}
-          </pre>
-        )}
-      </CardContent>
-    </Card>
-  );
-  ------------------------------------------------------------------*/
 }

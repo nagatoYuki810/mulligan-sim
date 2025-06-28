@@ -35,10 +35,6 @@ export default function App() {
       <main className="w-full max-w-4xl flex-1 p-4 space-y-6 flex flex-col items-center">
         <DeckFetcher onDeckJson={setDeckJson} />
 
-        {deckJson && (
-          <DeckExtractor deckJson={deckJson} onDeckList={setDeckCards} />
-        )}
-
         {deckCards && <MulliganSimulator cardPool={deckCards} />}
       </main>
     </div>
